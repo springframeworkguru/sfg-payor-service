@@ -1,5 +1,6 @@
 package guru.sfgpay.payor.controller;
 
+import com.atlassian.oai.validator.mockmvc.OpenApiMatchers;
 import guru.sfgpay.payor.service.PayorServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class PayorControllorTest {
                 .andExpect(openApi().isValid(OA3_URL));
     }
 
-    @Test
+    @Test(expected = OpenApiMatchers.OpenApiValidationException.class)
     public void getPayorFailSchema() throws Exception {
         mockMvc.perform(get("/v1/payors/16ea5c75-1476-4651-b117-bcb33d77f2b5"))
                 .andExpect(status().isOk())
