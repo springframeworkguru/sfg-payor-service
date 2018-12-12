@@ -29,7 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -80,7 +79,11 @@
             <artifactId>swagger-request-validator-springmvc</artifactId>
             <version>${swagger-request-validator.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.atlassian.oai</groupId>
+            <artifactId>swagger-request-validator-restassured</artifactId>
+            <version>${swagger-request-validator.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

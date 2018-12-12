@@ -30,6 +30,12 @@ paths:
                 - contractId: 1
                   name: Test Good Response
                   contractPath: "/v1/payors/0a818933-087d-47f2-ad83-2f986ed087eb"
+                - contractId: 2
+                  name: Test Not Found
+                  contractPath: "/v1/payors/00000000-0000-0000-0000-000000000000"
+                - contractId: 3
+                  name: Test Bad Schema
+                  contractPath: "/v1/payors/16ea5c75-1476-4651-b117-bcb33d77f2b5"
             responses:
                 '200':
                     description: Get Payor Details
@@ -148,5 +154,10 @@ paths:
                         - contractId: 1
                           body:
                           payorId: "0a818933-087d-47f2-ad83-2f986ed087eb"
+                        - contractId: 3
+                          body:
+                          payorId: "0a818933-087d-47f2-ad83-2f986ed087eb"
                 '404':
                     description: Payor Id Not Found
+                    x-contracts:
+                        - contractId: 2

@@ -36,7 +36,10 @@ public class PayorServiceImpl implements PayorService {
                             .zipOrPostcode("12312")
                             .build())
                     .build();
-        } else {
+        } else if (payorId.toString().equals("00000000-0000-0000-0000-000000000000")) {
+            return Optional.empty();
+        }
+        else {
             returnPayor = Payor.builder().address(Address.builder().build()).build();
         }
 
