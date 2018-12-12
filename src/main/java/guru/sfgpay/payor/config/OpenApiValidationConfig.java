@@ -6,6 +6,7 @@ import com.atlassian.oai.validator.springmvc.OpenApiValidationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,6 +17,7 @@ import java.io.IOException;
  * Created by jt on 2018-12-10.
  */
 @Configuration
+@Profile("oa3-validate")
 public class OpenApiValidationConfig implements WebMvcConfigurer {
 
     private final OpenApiValidationInterceptor validationInterceptor;

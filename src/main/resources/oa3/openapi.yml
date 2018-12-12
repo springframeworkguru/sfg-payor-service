@@ -26,6 +26,10 @@ paths:
                         $ curl 'https://api.sandbox.velopayments.com/v1/payors/a3c35f60-c94e-418d-bb5b-00174d93a6eb' -i \
                             -H 'Content-Type: application/json' \
                             -H 'Authorization: Bearer 40a61fcb-2a1a-454b-b049-01487986873e'
+            x-contracts:
+                - contractId: 1
+                  name: Test Good Response
+                  contractPath: "/v1/payors/0a818933-087d-47f2-ad83-2f986ed087eb"
             responses:
                 '200':
                     description: Get Payor Details
@@ -140,5 +144,9 @@ paths:
                                         enum: [EN, FR]
                                     includesReports:
                                         type: boolean
+                    x-contracts:
+                        - contractId: 1
+                          body:
+                          payorId: "0a818933-087d-47f2-ad83-2f986ed087eb"
                 '404':
                     description: Payor Id Not Found

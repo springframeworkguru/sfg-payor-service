@@ -19,6 +19,9 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.M3</spring-cloud.version>
         <swagger-request-validator.version>2.1.0</swagger-request-validator.version>
+        <spring-cloud-dependencies.version>Finchley.BUILD-SNAPSHOT</spring-cloud-dependencies.version>
+        <spring-cloud-contract.version>2.0.2.RELEASE</spring-cloud-contract.version>
+        <scc-oa3-version>2.0.2.2</scc-oa3-version>
     </properties>
 
     <dependencies>
@@ -52,6 +55,14 @@
             <artifactId>spring-cloud-starter-contract-verifier</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>guru.springframework</groupId>
+            <artifactId>spring-cloud-contract-oa3</artifactId>
+            <version>${scc-oa3-version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.atlassian.oai</groupId>
             <artifactId>swagger-request-validator-core</artifactId>
@@ -89,6 +100,25 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>${spring-cloud-contract.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <packageWithBaseClasses>guru.sfgpay</packageWithBaseClasses>
+                    <contractsPath>classpath:/oa3</contractsPath>
+                    <contractsDirectory>${pom.basedir}/src/main/resources/oa3</contractsDirectory>
+                </configuration>
+                <dependencies>
+                    <!--needed to include oa3 converter-->
+                    <dependency>
+                        <groupId>guru.springframework</groupId>
+                        <artifactId>spring-cloud-contract-oa3</artifactId>
+                        <version>${scc-oa3-version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
