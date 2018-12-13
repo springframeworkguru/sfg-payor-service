@@ -110,6 +110,7 @@
                 <version>${spring-cloud-contract.version}</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <testMode>EXPLICIT</testMode>
                     <packageWithBaseClasses>guru.sfgpay</packageWithBaseClasses>
                     <contractsPath>classpath:/oa3</contractsPath>
                     <contractsDirectory>${pom.basedir}/src/main/resources/oa3</contractsDirectory>
@@ -125,6 +126,8 @@
             </plugin>
         </plugins>
     </build>
+
+
 
     <repositories>
         <repository>
