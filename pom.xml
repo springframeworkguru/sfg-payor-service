@@ -17,11 +17,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.M3</spring-cloud.version>
         <swagger-request-validator.version>2.1.0</swagger-request-validator.version>
-        <spring-cloud-dependencies.version>Finchley.BUILD-SNAPSHOT</spring-cloud-dependencies.version>
         <spring-cloud-contract.version>2.0.2.RELEASE</spring-cloud-contract.version>
-        <scc-oa3-version>2.0.2.2</scc-oa3-version>
+        <scc-oa3-version>2.0.2.6</scc-oa3-version>
     </properties>
 
     <dependencies>
@@ -45,28 +43,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>guru.springframework</groupId>
             <artifactId>spring-cloud-contract-oa3</artifactId>
             <version>${scc-oa3-version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.atlassian.oai</groupId>
             <artifactId>swagger-request-validator-core</artifactId>
             <version>${swagger-request-validator.version}</version>
-            <!--<scope>test</scope>-->
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.atlassian.oai</groupId>
@@ -85,19 +71,6 @@
             <version>${swagger-request-validator.version}</version>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <plugins>
             <plugin>
@@ -126,9 +99,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-
     <repositories>
         <repository>
             <id>spring-milestones</id>
@@ -139,6 +109,4 @@
             </snapshots>
         </repository>
     </repositories>
-
-
 </project>

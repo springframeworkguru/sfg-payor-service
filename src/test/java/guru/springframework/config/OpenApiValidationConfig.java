@@ -1,4 +1,4 @@
-package guru.sfgpay.payor.config;
+package guru.springframework.config;
 
 import com.atlassian.oai.validator.OpenApiInteractionValidator;
 import com.atlassian.oai.validator.springmvc.OpenApiValidationFilter;
